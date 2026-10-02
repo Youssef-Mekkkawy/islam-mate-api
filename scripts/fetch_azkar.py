@@ -33,7 +33,6 @@ def download_audio(url, filepath):
     if not url:
         return False
     if os.path.exists(filepath):
-        print(f"  Audio already exists: {filepath}")
         return True
     try:
         response = requests.get(url, timeout=30, stream=True)
@@ -41,13 +40,11 @@ def download_audio(url, filepath):
             with open(filepath, "wb") as f:
                 for chunk in response.iter_content(chunk_size=8192):
                     f.write(chunk)
-            print(f"  Downloaded audio: {os.path.basename(filepath)}")
+            print(f"  Downloaded: {os.path.basename(filepath)}")
             return True
-        else:
-            print(f"  Audio not found: {url}")
-            return False
+        return False
     except Exception as e:
-        print(f"  Audio download failed: {e}")
+        print(f"  Audio failed: {e}")
         return False
 
 
@@ -85,21 +82,18 @@ def slugify(title: str) -> str:
 print("Fetching Arabic index...")
 ar_index = fetch(AR_INDEX)
 if not ar_index:
-    print("Failed to fetch Arabic index")
     exit(1)
 
 print("Fetching English index...")
 en_index = fetch(EN_INDEX)
 if not en_index:
-    print("Failed to fetch English index")
     exit(1)
 
 ar_categories = ar_index.get("العربية", [])
 en_categories = en_index.get("English", [])
 en_map = {item["ID"]: item for item in en_categories}
 
-print(f"Found {len(ar_categories)} Arabic categories")
-print(f"Found {len(en_categories)} English categories")
+print(f"Found {len(ar_categories)} categories")
 
 all_azkar = []
 
@@ -111,13 +105,12 @@ for ar_cat in ar_categories:
     en_title = en_cat.get("TITLE", ar_title)
     slug = slugify(ar_title)
 
-    print(f"\nFetching [{cat_id}]: {ar_title} / {en_title}")
+    print(f"\n[{cat_id}] {ar_title}")
 
     cat_audio_filename = ""
     if cat_audio_url:
         cat_audio_filename = f"{cat_id:03d}_{slug}.mp3"
-        cat_audio_path = f"{AUDIO_DIR}/{cat_audio_filename}"
-        download_audio(cat_audio_url, cat_audio_path)
+        download_audio(cat_audio_url, f"{AUDIO_DIR}/{cat_audio_filename}")
         time.sleep(0.2)
 
     ar_text_data = fetch(AR_TEXT_BASE.format(cat_id))
@@ -126,11 +119,24 @@ for ar_cat in ar_categories:
     time.sleep(0.3)
 
     if not ar_text_data:
-        print(f"  Skipping {cat_id} - no Arabic text")
+        print(f"  Skipping - no data")
         continue
 
-    ar_items = ar_text_data.get("العربية", [])
-    en_items = en_text_data.get("English", []) if en_text_data else []
+    ar_key = ar_title
+    en_key = en_title
+
+    ar_items = ar_text_data.get(ar_key, [])
+    if not ar_items:
+        keys = list(ar_text_data.keys())
+        ar_items = ar_text_data.get(keys[0], []) if keys else []
+
+    en_items = []
+    if en_text_data:
+        en_keys = list(en_text_data.keys())
+        en_items = en_text_data.get(en_key, [])
+        if not en_items and en_keys:
+            en_items = en_text_data.get(en_keys[0], [])
+
     en_items_map = {item.get("ID"): item for item in en_items}
 
     azkar_list = []
@@ -142,8 +148,7 @@ for ar_cat in ar_categories:
         item_audio_filename = ""
         if item_audio_url:
             item_audio_filename = f"{cat_id:03d}_{item_id:03d}.mp3"
-            item_audio_path = f"{AUDIO_DIR}/{item_audio_filename}"
-            download_audio(item_audio_url, item_audio_path)
+            download_audio(item_audio_url, f"{AUDIO_DIR}/{item_audio_filename}")
             time.sleep(0.2)
 
         azkar_list.append({
@@ -155,7 +160,7 @@ for ar_cat in ar_categories:
             "audio_file": item_audio_filename,
             "translations": {
                 "ar": {
-                    "text": ar_item.get("TEXT", ""),
+                    "text": ar_item.get("ARABIC_TEXT", ar_item.get("TEXT", "")),
                     "description": ar_item.get("FADL", "")
                 },
                 "en": {
@@ -193,11 +198,7 @@ for ar_cat in ar_categories:
 
     print(f"  Saved {len(azkar_list)} azkar")
 
-index_file = f"{OUTPUT_DIR}/index.json"
-with open(index_file, "w", encoding="utf-8") as f:
+with open(f"{OUTPUT_DIR}/index.json", "w", encoding="utf-8") as f:
     json.dump({"total": len(all_azkar), "categories": all_azkar}, f, ensure_ascii=False, indent=2)
 
-print(f"\nDone!")
-print(f"Categories: {len(all_azkar)}")
-print(f"JSON files: {OUTPUT_DIR}/")
-print(f"Audio files: {AUDIO_DIR}/")
+print(f"\nDone! {len(all_azkar)} categories")

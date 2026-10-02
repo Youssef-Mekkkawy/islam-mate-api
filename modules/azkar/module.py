@@ -32,7 +32,7 @@ class Module(BaseModule):
         index_path = f"{DATA_DIR}/index.json"
         if not os.path.exists(index_path):
             raise HTTPException(503, "Azkar data not found.")
-        with open(index_path, "r", encoding="utf-8") as f:
+        with open(index_path, "r", encoding="utf-8-sig") as f:
             self._index = json.load(f)
         return self._index
 
@@ -42,7 +42,7 @@ class Module(BaseModule):
         filepath = f"{DATA_DIR}/{filename}"
         if not os.path.exists(filepath):
             return None
-        with open(filepath, "r", encoding="utf-8") as f:
+        with open(filepath, "r", encoding="utf-8-sig") as f:
             data = json.load(f)
         self._cache[filename] = data
         return data
@@ -130,12 +130,18 @@ class Module(BaseModule):
     ):
         lang = self.get_lang(request, lang)
         index = self._load_index()
-        cat_meta = random.choice(index["categories"])
-        data = self._load_category(cat_meta["file"])
-        if not data or not data["azkar"]:
-            raise HTTPException(404, "No azkar found")
-        item = random.choice(data["azkar"])
-        return {
-            "category": self.translate(data.get("title", {}), lang),
-            "azkar": self._format_azkar_item(item, lang)
-        }
+        categories = index["categories"]
+
+        for _ in range(20):
+            cat_meta = random.choice(categories)
+            data = self._load_category(cat_meta["file"])
+            if data and data.get("azkar"):
+                item = random.choice(data["azkar"])
+                return {
+                    "category": self.translate(data.get("title", {}), lang),
+                    "azkar": self._format_azkar_item(item, lang)
+                }
+
+        raise HTTPException(503, "No azkar data available")
+
+

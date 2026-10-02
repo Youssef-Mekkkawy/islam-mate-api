@@ -16,12 +16,13 @@ modules:
   hijri: true
   azkar: true
   dua: true
-  quran: false
-  hadith: false
   allah_names: true
+  hadith: true
+  auth: true
+  quran: false
 
 security:
-  auth_enabled: false
+  auth_enabled: true
   rate_limiting: false
   ip_whitelist: []
 

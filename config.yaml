@@ -12,18 +12,30 @@ server:
 modules:
   prayer_times: true
   qibla: true
+  ramadan: true
+  hijri: true
+  azkar: true
+  dua: true
+  allah_names: true
+  hadith: true
+  auth: true
   quran: false
-  hadith: false
-  azkar: false
-  dua: false
-  allah_names: false
-  hijri: false
-  ramadan: false
 
 security:
   auth_enabled: false
-  rate_limiting: false
+  rate_limiting: true
+  rate_limit_default: "60/minute"
+  rate_limit_strict: "30/minute"
+  rate_limit_heavy: "10/minute"
   ip_whitelist: []
+
+cors:
+  allow_origins:
+    - "*"
+  allow_methods:
+    - "*"
+  allow_headers:
+    - "*"
 
 database:
   pool_size: 10

@@ -12,26 +12,24 @@ build/
 # Environment
 .env
 
-# Database
-*.db
-*.sqlite3
+# Data — mounted as volume
+data/
 
-# Logs
-*.log
-logs/
+# Tests
+tests/
+
+# Git
+.git/
+.gitignore
 
 # IDE
 .vscode/
 .idea/
-*.suo
-*.user
-
-# Docker
-.docker/
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Data files - hosted on HuggingFace
-data/
+# Logs
+*.log
+logs/

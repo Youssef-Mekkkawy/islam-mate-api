@@ -6,7 +6,7 @@ kernel = Kernel()
 kernel.discover()
 
 app = FastAPI(
-    title="Islamic API",
+    title="Islam Mate API",
     description="Open-source REST API for Muslim developers. Prayer times, Quran, Hadith, Azkar, and 50+ more features.",
     version="1.0.0",
     docs_url="/docs",
@@ -28,7 +28,7 @@ app.router.lifespan_context = lifespan
 @app.get("/")
 async def root():
     return {
-        "name": "Islamic API",
+        "name": "Islam Mate API",
         "version": "1.0.0",
         "docs": "/docs",
         "status": "running"

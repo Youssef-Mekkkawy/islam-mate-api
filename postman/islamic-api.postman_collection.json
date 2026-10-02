@@ -1,6 +1,6 @@
 ﻿{
   "info": {
-    "name": "Islamic API",
+    "name": "Islam Mate API",
     "description": "Open-source REST API for Muslim developers",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
@@ -114,8 +114,7 @@
                 {"key": "longitude", "value": "{{lng}}"},
                 {"key": "lang", "value": "en"}
               ]
-            },
-            "description": "Get Qibla direction and distance to Mecca"
+            }
           }
         },
         {

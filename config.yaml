@@ -18,7 +18,7 @@ modules:
   dua: true
   quran: false
   hadith: false
-  allah_names: false
+  allah_names: true
 
 security:
   auth_enabled: false

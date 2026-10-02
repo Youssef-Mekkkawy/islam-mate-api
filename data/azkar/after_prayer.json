@@ -1,0 +1,69 @@
+﻿{
+  "type": "after_prayer",
+  "azkar": [
+    {
+      "id": 1,
+      "repeat": 33,
+      "source": "Muslim",
+      "transliteration": "Subhanallah",
+      "translations": {
+        "ar": {
+          "text": "سُبْحَانَ اللَّهِ",
+          "description": "يقال ثلاثة وثلاثين مرة بعد كل صلاة"
+        },
+        "en": {
+          "text": "Glory be to Allah",
+          "description": "Said 33 times after every prayer"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "repeat": 33,
+      "source": "Muslim",
+      "transliteration": "Alhamdulillah",
+      "translations": {
+        "ar": {
+          "text": "الْحَمْدُ لِلَّهِ",
+          "description": "يقال ثلاثة وثلاثين مرة بعد كل صلاة"
+        },
+        "en": {
+          "text": "All praise is due to Allah",
+          "description": "Said 33 times after every prayer"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "repeat": 33,
+      "source": "Muslim",
+      "transliteration": "Allahu Akbar",
+      "translations": {
+        "ar": {
+          "text": "اللَّهُ أَكْبَرُ",
+          "description": "يقال ثلاثة وثلاثين مرة بعد كل صلاة"
+        },
+        "en": {
+          "text": "Allah is the Greatest",
+          "description": "Said 33 times after every prayer"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "repeat": 1,
+      "source": "Muslim",
+      "transliteration": "La ilaha illallahu wahdahu la sharika lah",
+      "translations": {
+        "ar": {
+          "text": "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+          "description": "يقال مرة واحدة بعد الأذكار"
+        },
+        "en": {
+          "text": "There is no god but Allah alone, with no partner. To Him belongs dominion and praise, and He has power over all things",
+          "description": "Said once after the dhikr"
+        }
+      }
+    }
+  ]
+}

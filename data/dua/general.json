@@ -1,0 +1,37 @@
+﻿{
+  "category": "general",
+  "duas": [
+    {
+      "id": 1,
+      "repeat": 1,
+      "source": "Quran 2:286",
+      "transliteration": "Rabbana la tu'akhidhna in nasina aw akhta'na",
+      "translations": {
+        "ar": {
+          "text": "رَبَّنَا لَا تُؤَاخِذْنَا إِنْ نَسِينَا أَوْ أَخْطَأْنَا",
+          "description": "دعاء من القرآن الكريم"
+        },
+        "en": {
+          "text": "Our Lord, do not take us to task if we forget or make a mistake",
+          "description": "Dua from the Holy Quran"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "repeat": 1,
+      "source": "Quran 3:8",
+      "transliteration": "Rabbana la tuzigh qulubana ba'da idh hadaytana",
+      "translations": {
+        "ar": {
+          "text": "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا",
+          "description": "دعاء من القرآن الكريم"
+        },
+        "en": {
+          "text": "Our Lord, do not cause our hearts to deviate after You have guided us",
+          "description": "Dua from the Holy Quran"
+        }
+      }
+    }
+  ]
+}

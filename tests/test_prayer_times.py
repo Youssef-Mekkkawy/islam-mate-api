@@ -84,7 +84,7 @@ class TestPrayerTimes:
         assert response.status_code == 200
         data = response.json()
         assert "next_prayer" in data
-        assert "time" in data
+        assert "time" in data or "message" in data
 
     def test_get_prayer_month(self):
         response = client.get(

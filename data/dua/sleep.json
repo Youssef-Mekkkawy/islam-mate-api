@@ -1,0 +1,21 @@
+﻿{
+  "category": "sleep",
+  "duas": [
+    {
+      "id": 1,
+      "repeat": 1,
+      "source": "Bukhari",
+      "transliteration": "Allahumma bismika amutu wa ahya",
+      "translations": {
+        "ar": {
+          "text": "اللَّهُمَّ بِاسْمِكَ أَمُوتُ وَأَحْيَا",
+          "description": "دعاء النوم"
+        },
+        "en": {
+          "text": "O Allah, in Your name I die and I live",
+          "description": "Dua before sleeping"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+﻿app:
+  name: Islamic API
+  version: 1.0.0
+  mode: development
+  debug: true
+
+server:
+  host: 0.0.0.0
+  port: 8000
+  reload: true
+
+modules:
+  prayer_times: true
+  qibla: true
+  quran: false
+  hadith: false
+  azkar: false
+  dua: false
+  allah_names: false
+  hijri: false
+  ramadan: false
+
+security:
+  auth_enabled: false
+  rate_limiting: false
+  ip_whitelist: []
+
+database:
+  pool_size: 10
+  max_overflow: 20
+
+cache:
+  ttl: 3600
+
+languages:
+  default: en
+  supported:
+    - en
+    - ar

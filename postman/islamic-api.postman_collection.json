@@ -1,0 +1,138 @@
+﻿{
+  "info": {
+    "name": "Islamic API",
+    "description": "Open-source REST API for Muslim developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key": "base_url", "value": "http://localhost:8000", "type": "string"},
+    {"key": "api_key", "value": "", "type": "string"},
+    {"key": "lat", "value": "30.0444", "type": "string"},
+    {"key": "lng", "value": "31.2357", "type": "string"}
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Root",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/",
+            "description": "Check API is running"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Prayer Times",
+      "item": [
+        {
+          "name": "Get Prayer Times",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/prayer-times?latitude={{lat}}&longitude={{lng}}&timezone=Africa/Cairo&method=EGYPT&lang=en",
+              "query": [
+                {"key": "latitude", "value": "{{lat}}"},
+                {"key": "longitude", "value": "{{lng}}"},
+                {"key": "timezone", "value": "Africa/Cairo"},
+                {"key": "method", "value": "EGYPT"},
+                {"key": "lang", "value": "en"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Prayer Times (Arabic)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/prayer-times?latitude={{lat}}&longitude={{lng}}&timezone=Africa/Cairo&method=EGYPT&lang=ar",
+              "query": [
+                {"key": "latitude", "value": "{{lat}}"},
+                {"key": "longitude", "value": "{{lng}}"},
+                {"key": "timezone", "value": "Africa/Cairo"},
+                {"key": "method", "value": "EGYPT"},
+                {"key": "lang", "value": "ar"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Next Prayer",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/prayer/next?latitude={{lat}}&longitude={{lng}}&timezone=Africa/Cairo&method=EGYPT",
+              "query": [
+                {"key": "latitude", "value": "{{lat}}"},
+                {"key": "longitude", "value": "{{lng}}"},
+                {"key": "timezone", "value": "Africa/Cairo"},
+                {"key": "method", "value": "EGYPT"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Prayer Month",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/prayer/month?latitude={{lat}}&longitude={{lng}}&month=10&year=2026&timezone=Africa/Cairo&method=EGYPT",
+              "query": [
+                {"key": "latitude", "value": "{{lat}}"},
+                {"key": "longitude", "value": "{{lng}}"},
+                {"key": "month", "value": "10"},
+                {"key": "year", "value": "2026"},
+                {"key": "timezone", "value": "Africa/Cairo"},
+                {"key": "method", "value": "EGYPT"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Prayer Methods",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/prayer/methods"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Qibla",
+      "item": [
+        {
+          "name": "Get Qibla Direction",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/qibla?latitude={{lat}}&longitude={{lng}}&lang=en",
+              "query": [
+                {"key": "latitude", "value": "{{lat}}"},
+                {"key": "longitude", "value": "{{lng}}"},
+                {"key": "lang", "value": "en"}
+              ]
+            },
+            "description": "Get Qibla direction and distance to Mecca"
+          }
+        },
+        {
+          "name": "Get Qibla Direction (Arabic)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/qibla?latitude={{lat}}&longitude={{lng}}&lang=ar",
+              "query": [
+                {"key": "latitude", "value": "{{lat}}"},
+                {"key": "longitude", "value": "{{lng}}"},
+                {"key": "lang", "value": "ar"}
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

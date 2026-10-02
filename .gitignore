@@ -1,4 +1,4 @@
-# Python
+﻿# Python
 venv/
 __pycache__/
 *.pyc
@@ -32,3 +32,6 @@ logs/
 # OS
 .DS_Store
 Thumbs.db
+
+# Data files - hosted on HuggingFace
+data/

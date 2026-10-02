@@ -1,3 +1,4 @@
+﻿from fastapi import Request
 from kernel.service_container import ServiceContainer
 
 
@@ -15,6 +16,14 @@ class BaseModule:
 
     def translate(self, data: dict, lang: str = "en") -> dict:
         return self.translator.translate(data, lang)
+
+    def get_lang(self, request: Request, lang: str = "en") -> str:
+        path = request.url.path
+        if "/ar/" in path or path.endswith("/ar"):
+            return "ar"
+        if "/en/" in path or path.endswith("/en"):
+            return "en"
+        return lang
 
     def register_routes(self, router):
         raise NotImplementedError(

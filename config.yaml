@@ -14,9 +14,9 @@ modules:
   qibla: true
   ramadan: true
   hijri: true
+  azkar: true
   quran: false
   hadith: false
-  azkar: false
   dua: false
   allah_names: false
 

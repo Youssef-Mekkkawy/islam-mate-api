@@ -1,9 +1,11 @@
 ﻿from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from slowapi.errors import RateLimitExceeded
 from kernel.kernel import Kernel
 from kernel.services.auth import validate_key
 from kernel.services.config_reader import ConfigReader
+from kernel.rate_limiter import limiter, rate_limit_exceeded_handler, is_rate_limited
 
 kernel = Kernel()
 kernel.discover()
@@ -14,9 +16,13 @@ app = FastAPI(
     version="1.0.0"
 )
 
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, rate_limit_exceeded_handler)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -26,21 +32,32 @@ EXEMPT_PREFIX = ["/docs/", "/redoc/", "/api/v1/auth/"]
 
 
 @app.middleware("http")
-async def auth_middleware(request: Request, call_next):
+async def main_middleware(request: Request, call_next):
     config = ConfigReader()
     config.load()
     mode = config.get("app.mode", "development")
     auth_enabled = config.get("security.auth_enabled", False)
+    rate_limiting = config.get("security.rate_limiting", False)
+
+    path = request.url.path
+    is_exempt = path in EXEMPT_EXACT or any(path.startswith(p) for p in EXEMPT_PREFIX)
+
+    if rate_limiting and not is_exempt:
+        ip = request.client.host
+        if is_rate_limited(ip):
+            return JSONResponse(
+                status_code=429,
+                content={
+                    "error": "Rate limit exceeded",
+                    "message": "Too many requests. Limit: 60 per minute",
+                    "retry_after": "60 seconds"
+                }
+            )
 
     if mode == "development" or not auth_enabled:
         return await call_next(request)
 
-    path = request.url.path
-
-    if path in EXEMPT_EXACT:
-        return await call_next(request)
-
-    if any(path.startswith(p) for p in EXEMPT_PREFIX):
+    if is_exempt:
         return await call_next(request)
 
     api_key = (
@@ -85,4 +102,3 @@ async def root():
 @app.get("/health")
 async def health():
     return {"status": "ok"}
-

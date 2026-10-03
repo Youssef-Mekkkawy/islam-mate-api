@@ -1,0 +1,286 @@
+/* ===== TEAL THEME - MkDocs Material Style ===== */
+
+:root {
+  /* Brand colors */
+  --vp-c-brand-1: #00796b;
+  --vp-c-brand-2: #009688;
+  --vp-c-brand-3: #26a69a;
+  --vp-c-brand-soft: rgba(0, 150, 136, 0.14);
+
+  /* Buttons */
+  --vp-button-brand-bg: #009688;
+  --vp-button-brand-hover-bg: #00796b;
+  --vp-button-brand-active-bg: #00695c;
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: #ffffff;
+
+  /* Home hero */
+  --vp-home-hero-name-color: #009688;
+  --vp-home-hero-image-filter: drop-shadow(0 0 60px rgba(0,150,136,0.3));
+}
+
+/* ===== NAVBAR - Solid teal like MkDocs Material ===== */
+.VPNav {
+  background-color: #009688 !important;
+  border-bottom: none !important;
+}
+
+.VPNavBar {
+  background-color: #009688 !important;
+  border-bottom: none !important;
+}
+
+.VPNavBar .title {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.VPNavBar .VPNavBarTitle .title {
+  color: #ffffff !important;
+}
+
+.VPNavBarMenu .VPNavBarMenuLink {
+  color: rgba(255,255,255,0.85) !important;
+}
+
+.VPNavBarMenu .VPNavBarMenuLink:hover {
+  color: #ffffff !important;
+}
+
+.VPNavBarMenuGroup .button {
+  color: rgba(255,255,255,0.85) !important;
+}
+
+.VPNavBarMenuGroup .button:hover {
+  color: #ffffff !important;
+}
+
+/* Search bar in navbar */
+.VPNavBarSearch .DocSearch-Button {
+  background: rgba(255,255,255,0.15) !important;
+  color: rgba(255,255,255,0.85) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+.VPNavBarSearch .DocSearch-Button:hover {
+  background: rgba(255,255,255,0.25) !important;
+}
+
+.VPNavBarSearch .DocSearch-Button-Key {
+  color: rgba(255,255,255,0.6) !important;
+}
+
+/* GitHub icon in navbar */
+.VPNavBarExtra .icon,
+.VPSocialLink .icon {
+  color: rgba(255,255,255,0.85) !important;
+  fill: rgba(255,255,255,0.85) !important;
+}
+
+.VPNavBarExtra .icon:hover,
+.VPSocialLink .icon:hover {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Dark/light toggle in navbar */
+.VPNavBarAppearance .vpi-sun,
+.VPNavBarAppearance .vpi-moon {
+  color: rgba(255,255,255,0.85) !important;
+}
+
+/* Language switcher in navbar */
+.VPNavBarTranslations .text {
+  color: rgba(255,255,255,0.85) !important;
+}
+
+/* ===== SIDEBAR ===== */
+.VPSidebar {
+  background-color: var(--vp-c-bg-soft) !important;
+  border-right: 1px solid var(--vp-c-divider) !important;
+}
+
+.VPSidebarItem.is-active > .item .link .text {
+  color: #009688 !important;
+  font-weight: 600 !important;
+}
+
+.VPSidebarItem .link:hover .text {
+  color: #009688 !important;
+}
+
+/* Active sidebar item indicator */
+.VPSidebarItem.is-active > .item .indicator {
+  background-color: #009688 !important;
+}
+
+/* ===== CONTENT LINKS ===== */
+.vp-doc a {
+  color: #009688 !important;
+  text-decoration: none;
+}
+
+.vp-doc a:hover {
+  color: #00796b !important;
+  text-decoration: underline;
+}
+
+/* ===== ACTIVE TOC ITEM ===== */
+.VPDocOutlineItem a.active {
+  color: #009688 !important;
+  border-left-color: #009688 !important;
+}
+
+/* ===== BADGES AND TAGS ===== */
+.vp-badge.tip {
+  background-color: #009688 !important;
+  color: white !important;
+}
+
+/* ===== HOME PAGE ===== */
+.VPHomeHero .name {
+  background: linear-gradient(120deg, #009688, #26a69a) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.VPHomeHero .tagline {
+  color: var(--vp-c-text-2) !important;
+}
+
+/* Feature cards */
+.VPFeature {
+  border: 1px solid var(--vp-c-divider) !important;
+  transition: border-color 0.25s, box-shadow 0.25s !important;
+}
+
+.VPFeature:hover {
+  border-color: #009688 !important;
+  box-shadow: 0 4px 20px rgba(0, 150, 136, 0.1) !important;
+}
+
+/* ===== DARK MODE ===== */
+.dark {
+  --vp-c-brand-1: #26a69a;
+  --vp-c-brand-2: #009688;
+  --vp-c-brand-3: #00796b;
+}
+
+.dark .VPNav,
+.dark .VPNavBar {
+  background-color: #00695c !important;
+}
+
+/* ===== CODE BLOCKS ===== */
+pre, code, .vp-code {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: embed !important;
+}
+
+/* ===== SEARCH LOCAL ===== */
+.VPLocalSearchBox .search-result.selected,
+.VPLocalSearchBox .search-result:hover {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+}
+
+.VPLocalSearchBox mark {
+  color: #009688 !important;
+  background: transparent !important;
+}
+
+/* ===== NAVBAR FULL WIDTH FIX ===== */
+.VPNav,
+.VPNavBar,
+.VPNavBar .wrapper,
+.VPNavBar .container,
+.VPNavBar .title,
+.VPNavBar .content,
+.VPNavBar .content-body,
+.VPNavBar .divider,
+.VPNavBar .curtain {
+  background-color: #009688 !important;
+  border-bottom: none !important;
+}
+
+/* The white strip on right is the divider */
+.VPNavBar .divider-line {
+  background-color: rgba(255,255,255,0.2) !important;
+}
+
+/* Full bleed background */
+.VPNavBar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100vw;
+  right: -100vw;
+  bottom: 0;
+  background-color: #009688;
+  z-index: -1;
+}
+
+html body .VPNav {
+  background: #009688 !important;
+}
+
+/* ===== NAVBAR ICONS - WHITE ON TEAL ===== */
+
+/* GitHub icon */
+.VPNavBarExtra .vpi-social-github,
+.VPSocialLink[href*="github"] .vpi-social-github {
+  color: white !important;
+  fill: white !important;
+}
+
+/* All social icons in navbar */
+.VPNavBar .VPSocialLinks .vpi-social-github,
+.VPNavBar .VPSocialLinks svg {
+  fill: white !important;
+  color: white !important;
+}
+
+/* Search button */
+.VPNavBarSearch .VPLocalSearchBox,
+.VPNavBarSearch button {
+  color: white !important;
+}
+
+.VPNavBarSearch .DocSearch-Button-Placeholder {
+  color: rgba(255,255,255,0.8) !important;
+}
+
+/* Search icon */
+.VPNavBarSearch svg,
+.VPNavBarSearch .vpi-search {
+  fill: white !important;
+  color: white !important;
+}
+
+/* Search text "Search" + "Ctrl K" */
+.VPNavBarSearch .search-button-text {
+  color: rgba(255,255,255,0.85) !important;
+}
+
+.VPNavBarSearch .search-button kbd {
+  color: rgba(255,255,255,0.6) !important;
+  border-color: rgba(255,255,255,0.3) !important;
+  background: rgba(255,255,255,0.1) !important;
+}
+
+/* Dark/Light toggle icon */
+.VPNavBarAppearance button svg {
+  fill: white !important;
+  color: white !important;
+}
+
+/* Language switcher */
+.VPNavBarTranslations button svg,
+.VPNavBarTranslations .vpi-languages {
+  fill: white !important;
+  color: white !important;
+}
+
+.VPNavBarTranslations .text {
+  color: rgba(255,255,255,0.85) !important;
+}

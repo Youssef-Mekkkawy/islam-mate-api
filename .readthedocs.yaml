@@ -11,4 +11,4 @@ build:
       html:
         - npm run docs:build
         - mkdir -p $READTHEDOCS_OUTPUT/html
-        - cp -r docs/.vitepress/dist/* $READTHEDOCS_OUTPUT/html/
+        - cp -r docs/.vitepress/dist/. $READTHEDOCS_OUTPUT/html

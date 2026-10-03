@@ -7,7 +7,7 @@
 Get today's Hijri date.
 
 ```bash
-curl "http://localhost:8000/api/v1/hijri"
+curl "https://islam-mate-api.readthedocs.io/api/v1/hijri"
 ```
 
 **Response:**
@@ -44,7 +44,7 @@ Convert a Gregorian date to Hijri.
 | lang | string | No | Language: en or ar |
 
 ```bash
-curl "http://localhost:8000/api/v1/hijri/convert?date=2026-10-03"
+curl "https://islam-mate-api.readthedocs.io/api/v1/hijri/convert?date=2026-10-03"
 ```
 
 ---
@@ -54,8 +54,8 @@ curl "http://localhost:8000/api/v1/hijri/convert?date=2026-10-03"
 Get all 12 Hijri month names.
 
 ```bash
-curl "http://localhost:8000/api/v1/hijri/months"
-curl "http://localhost:8000/api/v1/ar/hijri/months"
+curl "https://islam-mate-api.readthedocs.io/api/v1/hijri/months"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/hijri/months"
 ```
 
 **Response:**
@@ -77,7 +77,7 @@ curl "http://localhost:8000/api/v1/ar/hijri/months"
 Get Islamic events for a given year.
 
 ```bash
-curl "http://localhost:8000/api/v1/hijri/events?year=2026"
+curl "https://islam-mate-api.readthedocs.io/api/v1/hijri/events?year=2026"
 ```
 
 **Response:**

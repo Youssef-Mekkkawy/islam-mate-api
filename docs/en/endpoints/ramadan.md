@@ -17,7 +17,7 @@ Get Ramadan information and Suhoor/Iftar times for a given year.
 | method | string | No | Calculation method |
 
 ```bash
-curl "http://localhost:8000/api/v1/ramadan?latitude=30.04&longitude=31.23&year=2026&timezone=Africa/Cairo"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ramadan?latitude=30.04&longitude=31.23&year=2026&timezone=Africa/Cairo"
 ```
 
 ---
@@ -27,7 +27,7 @@ curl "http://localhost:8000/api/v1/ramadan?latitude=30.04&longitude=31.23&year=2
 Get the full Ramadan calendar (all 30 days).
 
 ```bash
-curl "http://localhost:8000/api/v1/ramadan/calendar?latitude=30.04&longitude=31.23&year=2026&timezone=Africa/Cairo"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ramadan/calendar?latitude=30.04&longitude=31.23&year=2026&timezone=Africa/Cairo"
 ```
 
 **Response:**

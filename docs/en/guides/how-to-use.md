@@ -12,7 +12,7 @@ http://your-server:8000
 
 For local development:
 ```
-http://localhost:8000
+https://islam-mate-api.readthedocs.io
 ```
 
 ---
@@ -92,32 +92,32 @@ All responses are JSON:
 ### Basic request
 
 ```bash
-curl "http://localhost:8000/api/v1/prayer-times?latitude=30.04&longitude=31.23&timezone=Africa/Cairo"
+curl "https://islam-mate-api.readthedocs.io/api/v1/prayer-times?latitude=30.04&longitude=31.23&timezone=Africa/Cairo"
 ```
 
 ### With API key
 
 ```bash
-curl "http://localhost:8000/api/v1/prayer-times?latitude=30.04&longitude=31.23" \
+curl "https://islam-mate-api.readthedocs.io/api/v1/prayer-times?latitude=30.04&longitude=31.23" \
   -H "X-API-Key: im_your_key_here"
 ```
 
 ### Arabic response
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/prayer-times?latitude=30.04&longitude=31.23"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/prayer-times?latitude=30.04&longitude=31.23"
 ```
 
 ### Pretty print JSON
 
 ```bash
-curl "http://localhost:8000/api/v1/hadith/bukhari/1" | python3 -m json.tool
+curl "https://islam-mate-api.readthedocs.io/api/v1/hadith/bukhari/1" | python3 -m json.tool
 ```
 
 ### Register for API key
 
 ```bash
-curl -X POST http://localhost:8000/api/v1/auth/register \
+curl -X POST https://islam-mate-api.readthedocs.io/api/v1/auth/register \
   -H "Content-Type: application/json" \
   -d '{"name": "My App", "email": "dev@example.com"}'
 ```
@@ -147,7 +147,7 @@ Download the ready-made Postman collection with all endpoints pre-configured:
 
 | Variable | Value |
 |---|---|
-| `base_url` | `http://localhost:8000` |
+| `base_url` | `https://islam-mate-api.readthedocs.io` |
 | `api_key` | `im_your_key_here` |
 | `lang` | `en` |
 
@@ -173,7 +173,7 @@ pip install requests
 ```python
 import requests
 
-BASE_URL = "http://localhost:8000"
+BASE_URL = "https://islam-mate-api.readthedocs.io"
 API_KEY = "im_your_key_here"
 
 headers = {
@@ -268,7 +268,7 @@ def safe_request(url, params=None):
 ### Browser (Fetch API)
 
 ```javascript
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://islam-mate-api.readthedocs.io";
 const API_KEY = "im_your_key_here";
 
 const headers = {
@@ -336,7 +336,7 @@ npm install axios
 const axios = require("axios");
 
 const client = axios.create({
-  baseURL: "http://localhost:8000",
+  baseURL: "https://islam-mate-api.readthedocs.io",
   headers: { "X-API-Key": "im_your_key_here" },
   timeout: 10000
 });
@@ -392,7 +392,7 @@ async function safeRequest(fn) {
 ```php
 <?php
 
-define('BASE_URL', 'http://localhost:8000');
+define('BASE_URL', 'https://islam-mate-api.readthedocs.io');
 define('API_KEY', 'im_your_key_here');
 
 function islamRequest($endpoint, $params = [], $lang = 'en') {
@@ -500,7 +500,7 @@ class IslamMateClient {
 
 // Usage
 try {
-    $islam = new IslamMateClient('http://localhost:8000', 'im_your_key_here', 'en');
+    $islam = new IslamMateClient('https://islam-mate-api.readthedocs.io', 'im_your_key_here', 'en');
 
     $times = $islam->getPrayerTimes(30.04, 31.23, 'Africa/Cairo');
     foreach ($times['prayers'] as $prayer) {
@@ -751,7 +751,7 @@ class IslamMateClient {
   final String lang;
 
   IslamMateClient({
-    this.baseUrl = 'http://localhost:8000',
+    this.baseUrl = 'https://islam-mate-api.readthedocs.io',
     required this.apiKey,
     this.lang = 'en',
   });
@@ -862,7 +862,7 @@ class PrayerTimesScreen extends StatefulWidget {
 
 class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
   final client = IslamMateClient(
-    baseUrl: 'http://localhost:8000',
+    baseUrl: 'https://islam-mate-api.readthedocs.io',
     apiKey: 'im_your_key_here',
     lang: 'en',
   );
@@ -931,7 +931,7 @@ class IslamMateDio {
   final String lang;
 
   IslamMateDio({
-    String baseUrl = 'http://localhost:8000',
+    String baseUrl = 'https://islam-mate-api.readthedocs.io',
     required String apiKey,
     this.lang = 'en',
   }) {

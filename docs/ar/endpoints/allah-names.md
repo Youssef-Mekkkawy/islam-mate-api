@@ -9,7 +9,7 @@
 الحصول على جميع الاسماء الحسنى.
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/allah-names"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/allah-names"
 ```
 
 **الرد:**
@@ -43,8 +43,8 @@ curl "http://localhost:8000/api/v1/ar/allah-names"
 الحصول على اسم بالرقم (1-99).
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/allah-names/1"
-curl "http://localhost:8000/api/v1/ar/allah-names/99"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/allah-names/1"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/allah-names/99"
 ```
 
 ---
@@ -54,5 +54,5 @@ curl "http://localhost:8000/api/v1/ar/allah-names/99"
 الحصول على اسم عشوائي.
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/allah-names/random"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/allah-names/random"
 ```

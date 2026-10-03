@@ -20,7 +20,7 @@
 **مثال:**
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/prayer-times?latitude=30.04&longitude=31.23&timezone=Africa/Cairo&method=EGYPT"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/prayer-times?latitude=30.04&longitude=31.23&timezone=Africa/Cairo&method=EGYPT"
 ```
 
 **الرد:**
@@ -52,7 +52,7 @@ curl "http://localhost:8000/api/v1/ar/prayer-times?latitude=30.04&longitude=31.2
 الحصول على الصلاة القادمة.
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/prayer/next?latitude=30.04&longitude=31.23&timezone=Africa/Cairo"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/prayer/next?latitude=30.04&longitude=31.23&timezone=Africa/Cairo"
 ```
 
 ---
@@ -62,7 +62,7 @@ curl "http://localhost:8000/api/v1/ar/prayer/next?latitude=30.04&longitude=31.23
 الحصول على اوقات الصلاة لشهر كامل.
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/prayer/month?latitude=30.04&longitude=31.23&month=10&year=2026"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/prayer/month?latitude=30.04&longitude=31.23&month=10&year=2026"
 ```
 
 ---
@@ -72,7 +72,7 @@ curl "http://localhost:8000/api/v1/ar/prayer/month?latitude=30.04&longitude=31.2
 الحصول على جميع طرق الحساب المتاحة.
 
 ```bash
-curl "http://localhost:8000/api/v1/prayer/methods"
+curl "https://islam-mate-api.readthedocs.io/api/v1/prayer/methods"
 ```
 
 ---

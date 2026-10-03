@@ -17,7 +17,7 @@
 | method | string | لا | طريقة الحساب |
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/ramadan?latitude=30.04&longitude=31.23&year=2026&timezone=Africa/Cairo"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/ramadan?latitude=30.04&longitude=31.23&year=2026&timezone=Africa/Cairo"
 ```
 
 ---
@@ -27,7 +27,7 @@ curl "http://localhost:8000/api/v1/ar/ramadan?latitude=30.04&longitude=31.23&yea
 الحصول على تقويم رمضان كامل (30 يوم).
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/ramadan/calendar?latitude=30.04&longitude=31.23&year=2026&timezone=Africa/Cairo"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/ramadan/calendar?latitude=30.04&longitude=31.23&year=2026&timezone=Africa/Cairo"
 ```
 
 **الرد:**

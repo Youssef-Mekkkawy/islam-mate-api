@@ -17,7 +17,7 @@
 **مثال:**
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/qibla?latitude=30.04&longitude=31.23"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/qibla?latitude=30.04&longitude=31.23"
 ```
 
 **الرد:**

@@ -9,7 +9,7 @@ Duas are personal supplications. This module provides categorized duas with Arab
 Get all available Dua categories.
 
 ```bash
-curl "http://localhost:8000/api/v1/dua"
+curl "https://islam-mate-api.readthedocs.io/api/v1/dua"
 ```
 
 **Response:**
@@ -33,9 +33,9 @@ curl "http://localhost:8000/api/v1/dua"
 Get all duas in a specific category.
 
 ```bash
-curl "http://localhost:8000/api/v1/dua/food"
-curl "http://localhost:8000/api/v1/dua/travel"
-curl "http://localhost:8000/api/v1/dua/sleep"
+curl "https://islam-mate-api.readthedocs.io/api/v1/dua/food"
+curl "https://islam-mate-api.readthedocs.io/api/v1/dua/travel"
+curl "https://islam-mate-api.readthedocs.io/api/v1/dua/sleep"
 ```
 
 **Response:**
@@ -64,15 +64,15 @@ curl "http://localhost:8000/api/v1/dua/sleep"
 Get a random Dua from any category.
 
 ```bash
-curl "http://localhost:8000/api/v1/dua/random"
+curl "https://islam-mate-api.readthedocs.io/api/v1/dua/random"
 ```
 
 ## Language Support
 
 ```bash
 # English
-curl "http://localhost:8000/api/v1/en/dua/food"
+curl "https://islam-mate-api.readthedocs.io/api/v1/en/dua/food"
 
 # Arabic
-curl "http://localhost:8000/api/v1/ar/dua/food"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/dua/food"
 ```

@@ -7,7 +7,7 @@
 الحصول على جميع فئات الادعية.
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/dua"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/dua"
 ```
 
 **الرد:**
@@ -31,9 +31,9 @@ curl "http://localhost:8000/api/v1/ar/dua"
 الحصول على ادعية فئة معينة.
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/dua/food"
-curl "http://localhost:8000/api/v1/ar/dua/travel"
-curl "http://localhost:8000/api/v1/ar/dua/sleep"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/dua/food"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/dua/travel"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/dua/sleep"
 ```
 
 **الرد:**
@@ -62,5 +62,5 @@ curl "http://localhost:8000/api/v1/ar/dua/sleep"
 الحصول على دعاء عشوائي.
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/dua/random"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/dua/random"
 ```

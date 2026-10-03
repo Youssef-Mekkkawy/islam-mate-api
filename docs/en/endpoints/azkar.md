@@ -20,7 +20,7 @@ Azkar (أذكار) are Islamic remembrance phrases from Hisnul Muslim by Sheikh 
 Get all Azkar categories.
 
 ```bash
-curl "http://localhost:8000/api/v1/azkar"
+curl "https://islam-mate-api.readthedocs.io/api/v1/azkar"
 ```
 
 **Response:**
@@ -47,7 +47,7 @@ curl "http://localhost:8000/api/v1/azkar"
 Get all Azkar in a specific category by ID.
 
 ```bash
-curl "http://localhost:8000/api/v1/azkar/27"
+curl "https://islam-mate-api.readthedocs.io/api/v1/azkar/27"
 ```
 
 **Response:**
@@ -78,9 +78,9 @@ curl "http://localhost:8000/api/v1/azkar/27"
 Get Azkar by category slug name.
 
 ```bash
-curl "http://localhost:8000/api/v1/azkar/slug/morning_evening"
-curl "http://localhost:8000/api/v1/azkar/slug/sleep"
-curl "http://localhost:8000/api/v1/azkar/slug/after_prayer"
+curl "https://islam-mate-api.readthedocs.io/api/v1/azkar/slug/morning_evening"
+curl "https://islam-mate-api.readthedocs.io/api/v1/azkar/slug/sleep"
+curl "https://islam-mate-api.readthedocs.io/api/v1/azkar/slug/after_prayer"
 ```
 
 ---
@@ -90,7 +90,7 @@ curl "http://localhost:8000/api/v1/azkar/slug/after_prayer"
 Get a random Azkar from any category.
 
 ```bash
-curl "http://localhost:8000/api/v1/azkar/random/item"
+curl "https://islam-mate-api.readthedocs.io/api/v1/azkar/random/item"
 ```
 
 **Response:**

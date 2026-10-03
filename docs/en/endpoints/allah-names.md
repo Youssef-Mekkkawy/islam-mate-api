@@ -9,7 +9,7 @@ The 99 names (Asma ul-Husna) of Allah with meanings in Arabic and English.
 Get all 99 names of Allah.
 
 ```bash
-curl "http://localhost:8000/api/v1/allah-names"
+curl "https://islam-mate-api.readthedocs.io/api/v1/allah-names"
 ```
 
 **Response:**
@@ -43,8 +43,8 @@ curl "http://localhost:8000/api/v1/allah-names"
 Get a specific name by its number (1-99).
 
 ```bash
-curl "http://localhost:8000/api/v1/allah-names/1"
-curl "http://localhost:8000/api/v1/allah-names/99"
+curl "https://islam-mate-api.readthedocs.io/api/v1/allah-names/1"
+curl "https://islam-mate-api.readthedocs.io/api/v1/allah-names/99"
 ```
 
 **Response:**
@@ -66,16 +66,16 @@ curl "http://localhost:8000/api/v1/allah-names/99"
 Get a random name from the 99 names.
 
 ```bash
-curl "http://localhost:8000/api/v1/allah-names/random"
-curl "http://localhost:8000/api/v1/ar/allah-names/random"
+curl "https://islam-mate-api.readthedocs.io/api/v1/allah-names/random"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/allah-names/random"
 ```
 
 ## Language Support
 
 ```bash
 # English
-curl "http://localhost:8000/api/v1/en/allah-names/1"
+curl "https://islam-mate-api.readthedocs.io/api/v1/en/allah-names/1"
 
 # Arabic
-curl "http://localhost:8000/api/v1/ar/allah-names/1"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/allah-names/1"
 ```

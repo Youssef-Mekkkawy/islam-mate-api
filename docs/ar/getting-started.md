@@ -52,7 +52,7 @@ python scripts/fetch_hadith.py
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-افتح الواجهة التفاعلية: [http://localhost:8000/docs](http://localhost:8000/docs)
+افتح الواجهة التفاعلية: [https://islam-mate-api.readthedocs.io](https://islam-mate-api.readthedocs.io)
 
 ---
 
@@ -67,7 +67,7 @@ docker compose up
 ## التحقق من التثبيت
 
 ```bash
-curl http://localhost:8000/health
+curl https://islam-mate-api.readthedocs.io/health
 ```
 
 الرد المتوقع:

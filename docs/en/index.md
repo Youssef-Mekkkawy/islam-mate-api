@@ -38,14 +38,14 @@ python scripts/fetch_hadith.py
 uvicorn main:app --reload
 ```
 
-Interactive docs: [http://localhost:8000/docs](http://localhost:8000/docs)
+Interactive docs: [https://islam-mate-api.readthedocs.io](https://islam-mate-api.readthedocs.io)
 
 ---
 
 ## Quick Example
 
 ```bash
-curl "http://localhost:8000/api/v1/en/prayer-times?latitude=30.04&longitude=31.23&timezone=Africa/Cairo"
-curl "http://localhost:8000/api/v1/en/hadith/random"
-curl "http://localhost:8000/api/v1/en/allah-names/random"
+curl "https://islam-mate-api.readthedocs.io/api/v1/en/prayer-times?latitude=30.04&longitude=31.23&timezone=Africa/Cairo"
+curl "https://islam-mate-api.readthedocs.io/api/v1/en/hadith/random"
+curl "https://islam-mate-api.readthedocs.io/api/v1/en/allah-names/random"
 ```

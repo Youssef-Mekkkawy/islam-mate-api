@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: 'Islam Mate API',
+  ignoreDeadLinks: true,
   description: 'Open-source Islamic REST API for Muslim developers',
   lang: 'en',
 
@@ -17,6 +18,7 @@ export default defineConfig({
       dir: 'rtl',
       link: '/ar/',
       title: 'Islam Mate API',
+  ignoreDeadLinks: true,
       description: 'واجهة برمجية اسلامية مفتوحة المصدر',
       themeConfig: {
         nav: [

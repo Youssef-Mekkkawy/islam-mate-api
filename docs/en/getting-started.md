@@ -49,7 +49,7 @@ python scripts/fetch_hadith.py
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-Open docs: [http://localhost:8000/docs](http://localhost:8000/docs)
+Open docs: [https://islam-mate-api.readthedocs.io](https://islam-mate-api.readthedocs.io)
 
 ---
 
@@ -64,6 +64,6 @@ docker compose up
 ## Verify installation
 
 ```bash
-curl http://localhost:8000/health
+curl https://islam-mate-api.readthedocs.io/health
 # Expected: {"status": "ok"}
 ```

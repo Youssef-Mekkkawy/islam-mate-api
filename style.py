@@ -1,0 +1,17 @@
+with open('.readthedocs.yaml', 'w', encoding='utf-8') as f:
+    f.write("version: 2\n")
+    f.write("\n")
+    f.write("build:\n")
+    f.write("  os: ubuntu-24.04\n")
+    f.write("  tools:\n")
+    f.write("    nodejs: \"22\"\n")
+    f.write("  jobs:\n")
+    f.write("    install:\n")
+    f.write("      - npm install\n")
+    f.write("    build:\n")
+    f.write("      html:\n")
+    f.write("        - npm run docs:build\n")
+    f.write("        - mkdir -p $READTHEDOCS_OUTPUT/html\n")
+    f.write("        - cp -r docs/.vitepress/dist/* $READTHEDOCS_OUTPUT/html/\n")
+
+print('Done!')

@@ -1,6 +1,9 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  base: process.env.READTHEDOCS_CANONICAL_URL
+    ? new URL(process.env.READTHEDOCS_CANONICAL_URL).pathname
+    : '/',
   title: 'Islam Mate API',
   ignoreDeadLinks: true,
   description: 'Open-source Islamic REST API for Muslim developers',

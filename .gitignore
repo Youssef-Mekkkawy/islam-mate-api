@@ -35,3 +35,14 @@ Thumbs.db
 
 # Data files - hosted on HuggingFace
 data/
+
+node_modules/
+package-lock.json
+
+# Node.js
+node_modules/
+package-lock.json
+
+# VitePress build output
+docs/.vitepress/dist/
+docs/.vitepress/cache/

@@ -12,7 +12,7 @@ http://your-server:8000
 
 للتطوير المحلي:
 ```
-http://localhost:8000
+https://islam-mate-api.readthedocs.io
 ```
 
 ---
@@ -23,13 +23,13 @@ http://localhost:8000
 
 ```bash
 # عربي
-curl "http://localhost:8000/api/v1/ar/prayer-times?latitude=30.04&longitude=31.23"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/prayer-times?latitude=30.04&longitude=31.23"
 
 # انجليزي
-curl "http://localhost:8000/api/v1/en/prayer-times?latitude=30.04&longitude=31.23"
+curl "https://islam-mate-api.readthedocs.io/api/v1/en/prayer-times?latitude=30.04&longitude=31.23"
 
 # عبر معامل الاستعلام
-curl "http://localhost:8000/api/v1/prayer-times?latitude=30.04&longitude=31.23&lang=ar"
+curl "https://islam-mate-api.readthedocs.io/api/v1/prayer-times?latitude=30.04&longitude=31.23&lang=ar"
 ```
 
 ---
@@ -67,14 +67,14 @@ Param:   ?api_key=im_your_key_here
 
 ```bash
 # طلب اساسي
-curl "http://localhost:8000/api/v1/ar/prayer-times?latitude=30.04&longitude=31.23&timezone=Africa/Cairo"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/prayer-times?latitude=30.04&longitude=31.23&timezone=Africa/Cairo"
 
 # مع مفتاح API
-curl "http://localhost:8000/api/v1/ar/prayer-times?latitude=30.04&longitude=31.23" \
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/prayer-times?latitude=30.04&longitude=31.23" \
   -H "X-API-Key: im_your_key_here"
 
 # طباعة منسقة
-curl "http://localhost:8000/api/v1/ar/hadith/bukhari/1" | python3 -m json.tool
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/hadith/bukhari/1" | python3 -m json.tool
 ```
 
 ---
@@ -84,7 +84,7 @@ curl "http://localhost:8000/api/v1/ar/hadith/bukhari/1" | python3 -m json.tool
 ```python
 import requests
 
-BASE_URL = "http://localhost:8000"
+BASE_URL = "https://islam-mate-api.readthedocs.io"
 API_KEY = "im_your_key_here"
 headers = {"X-API-Key": API_KEY}
 
@@ -108,7 +108,7 @@ for prayer in times["prayers"]:
 ## JavaScript
 
 ```javascript
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://islam-mate-api.readthedocs.io";
 const API_KEY = "im_your_key_here";
 const headers = { "X-API-Key": API_KEY };
 
@@ -140,7 +140,7 @@ class IslamMateClient {
   final String lang;
 
   IslamMateClient({
-    this.baseUrl = 'http://localhost:8000',
+    this.baseUrl = 'https://islam-mate-api.readthedocs.io',
     required this.apiKey,
     this.lang = 'ar',
   });

@@ -7,7 +7,7 @@
 الحصول على التاريخ الهجري لليوم.
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/hijri"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/hijri"
 ```
 
 **الرد:**
@@ -44,7 +44,7 @@ curl "http://localhost:8000/api/v1/ar/hijri"
 | lang | string | لا | ar او en |
 
 ```bash
-curl "http://localhost:8000/api/v1/hijri/convert?date=2026-10-03"
+curl "https://islam-mate-api.readthedocs.io/api/v1/hijri/convert?date=2026-10-03"
 ```
 
 ---
@@ -54,7 +54,7 @@ curl "http://localhost:8000/api/v1/hijri/convert?date=2026-10-03"
 الحصول على اسماء الاشهر الهجرية الاثني عشر.
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/hijri/months"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/hijri/months"
 ```
 
 **الرد:**
@@ -76,7 +76,7 @@ curl "http://localhost:8000/api/v1/ar/hijri/months"
 الحصول على المناسبات الاسلامية لسنة معينة.
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/hijri/events?year=2026"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/hijri/events?year=2026"
 ```
 
 **الرد:**

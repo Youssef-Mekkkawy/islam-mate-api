@@ -20,7 +20,7 @@
 الحصول على جميع فئات الاذكار.
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/azkar"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/azkar"
 ```
 
 **الرد:**
@@ -47,7 +47,7 @@ curl "http://localhost:8000/api/v1/ar/azkar"
 الحصول على اذكار فئة معينة برقمها.
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/azkar/27"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/azkar/27"
 ```
 
 ---
@@ -57,9 +57,9 @@ curl "http://localhost:8000/api/v1/ar/azkar/27"
 الحصول على اذكار فئة معينة باسمها.
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/azkar/slug/morning_evening"
-curl "http://localhost:8000/api/v1/ar/azkar/slug/sleep"
-curl "http://localhost:8000/api/v1/ar/azkar/slug/after_prayer"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/azkar/slug/morning_evening"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/azkar/slug/sleep"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/azkar/slug/after_prayer"
 ```
 
 **الرد:**
@@ -89,7 +89,7 @@ curl "http://localhost:8000/api/v1/ar/azkar/slug/after_prayer"
 الحصول على ذكر عشوائي.
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/azkar/random/item"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/azkar/random/item"
 ```
 
 ---

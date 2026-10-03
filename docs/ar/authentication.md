@@ -22,7 +22,7 @@ security:
 ### 2. الحصول على مفتاح API
 
 ```bash
-curl -X POST http://localhost:8000/api/v1/auth/register \
+curl -X POST https://islam-mate-api.readthedocs.io/api/v1/auth/register \
   -H "Content-Type: application/json" \
   -d '{"name": "اسمك", "email": "email@example.com"}'
 ```
@@ -46,21 +46,21 @@ curl -X POST http://localhost:8000/api/v1/auth/register \
 #### عبر X-API-Key Header
 
 ```bash
-curl http://localhost:8000/api/v1/hadith/bukhari/1 \
+curl https://islam-mate-api.readthedocs.io/api/v1/hadith/bukhari/1 \
   -H "X-API-Key: im_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
 #### عبر Authorization Header
 
 ```bash
-curl http://localhost:8000/api/v1/hadith/bukhari/1 \
+curl https://islam-mate-api.readthedocs.io/api/v1/hadith/bukhari/1 \
   -H "Authorization: Bearer im_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
 #### عبر Query Parameter
 
 ```
-http://localhost:8000/api/v1/hadith/bukhari/1?api_key=im_xxx
+https://islam-mate-api.readthedocs.io/api/v1/hadith/bukhari/1?api_key=im_xxx
 ```
 
 ---

@@ -24,7 +24,7 @@
 الحصول على قائمة المجموعات.
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/hadith"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/hadith"
 ```
 
 ---
@@ -39,7 +39,7 @@ curl "http://localhost:8000/api/v1/ar/hadith"
 | limit | عدد النتائج (افتراضي: 50، الحد: 200) |
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/hadith/bukhari?page=1&limit=10"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/hadith/bukhari?page=1&limit=10"
 ```
 
 ---
@@ -49,7 +49,7 @@ curl "http://localhost:8000/api/v1/ar/hadith/bukhari?page=1&limit=10"
 الحصول على حديث بالرقم.
 
 ```bash
-curl "http://localhost:8000/api/v1/ar/hadith/bukhari/1"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/hadith/bukhari/1"
 ```
 
 **الرد:**
@@ -77,10 +77,10 @@ curl "http://localhost:8000/api/v1/ar/hadith/bukhari/1"
 
 ```bash
 # من اي مجموعة
-curl "http://localhost:8000/api/v1/ar/hadith/random"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/hadith/random"
 
 # من مجموعة محددة
-curl "http://localhost:8000/api/v1/ar/hadith/random?collection=nawawi40"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/hadith/random?collection=nawawi40"
 ```
 
 ---

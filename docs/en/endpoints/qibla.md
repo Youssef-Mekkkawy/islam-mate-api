@@ -17,7 +17,7 @@ Get the Qibla direction and distance to Mecca for any location.
 **Example:**
 
 ```bash
-curl "http://localhost:8000/api/v1/qibla?latitude=30.04&longitude=31.23"
+curl "https://islam-mate-api.readthedocs.io/api/v1/qibla?latitude=30.04&longitude=31.23"
 ```
 
 **Response:**
@@ -50,8 +50,8 @@ The bearing is measured in degrees clockwise from North:
 
 ```bash
 # English
-curl "http://localhost:8000/api/v1/en/qibla?latitude=30.04&longitude=31.23"
+curl "https://islam-mate-api.readthedocs.io/api/v1/en/qibla?latitude=30.04&longitude=31.23"
 
 # Arabic
-curl "http://localhost:8000/api/v1/ar/qibla?latitude=30.04&longitude=31.23"
+curl "https://islam-mate-api.readthedocs.io/api/v1/ar/qibla?latitude=30.04&longitude=31.23"
 ```

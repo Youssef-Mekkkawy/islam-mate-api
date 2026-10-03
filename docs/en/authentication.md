@@ -22,7 +22,7 @@ security:
 ### 2. Get an API key
 
 ```bash
-curl -X POST http://localhost:8000/api/v1/auth/register \
+curl -X POST https://islam-mate-api.readthedocs.io/api/v1/auth/register \
   -H "Content-Type: application/json" \
   -d '{"name": "Your Name", "email": "your@email.com"}'
 ```
@@ -43,7 +43,7 @@ Response:
 ### 3. Use your key
 
 ```bash
-curl http://localhost:8000/api/v1/hadith/bukhari/1 \
+curl https://islam-mate-api.readthedocs.io/api/v1/hadith/bukhari/1 \
   -H "X-API-Key: im_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 

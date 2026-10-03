@@ -1,0 +1,96 @@
+﻿site_name: Islam Mate API
+site_url: https://islam-mate-api.readthedocs.io
+site_description: ÙˆØ§Ø¬Ù‡Ø© Ø¨Ø±Ù…Ø¬ÙŠØ© Ø§Ø³Ù„Ø§Ù…ÙŠØ© Ù…ÙØªÙˆØ­Ø© Ø§Ù„Ù…ØµØ¯Ø± Ù„Ù„Ù…Ø·ÙˆØ±ÙŠÙ† Ø§Ù„Ù…Ø³Ù„Ù…ÙŠÙ†
+site_author: Youssef Mekkkawy
+repo_url: https://github.com/Youssef-Mekkkawy/islam-mate-api
+repo_name: islam-mate-api
+docs_dir: docs
+
+theme:
+  name: material
+  language: ar
+  palette:
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Ø§Ù„ÙˆØ¶Ø¹ Ø§Ù„Ø¯Ø§ÙƒÙ†
+    - scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Ø§Ù„ÙˆØ¶Ø¹ Ø§Ù„ÙØ§ØªØ­
+  font:
+    text: Tajawal
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.instant
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+extra:
+  alternate:
+    - name: Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©
+      link: ./
+      lang: ar
+    - name: English
+      link: en/
+      lang: en
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Youssef-Mekkkawy/islam-mate-api
+    - icon: fontawesome/solid/database
+      link: https://huggingface.co/datasets/elprofessorai/islam-mate-data
+
+extra_css:
+  - assets/extra.css
+
+plugins:
+  - search
+
+nav:
+  - Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©: index.md
+  - Ø§Ù„Ø¨Ø¯Ø§ÙŠØ© Ø§Ù„Ø³Ø±ÙŠØ¹Ø©: getting-started.md
+  - Ø§Ù„Ù…ØµØ§Ø¯Ù‚Ø©: authentication.md
+  - ØªØ­Ø¯ÙŠØ¯ Ø§Ù„Ù…Ø¹Ø¯Ù„: rate-limiting.md
+  - Ù†Ù‚Ø§Ø· Ø§Ù„Ù†Ù‡Ø§ÙŠØ©:
+    - Ø§ÙˆÙ‚Ø§Øª Ø§Ù„ØµÙ„Ø§Ø©: endpoints/prayer-times.md
+    - Ø§Ù„Ù‚Ø¨Ù„Ø©: endpoints/qibla.md
+    - Ø§Ù„ØªÙ‚ÙˆÙŠÙ… Ø§Ù„Ù‡Ø¬Ø±ÙŠ: endpoints/hijri.md
+    - Ø±Ù…Ø¶Ø§Ù†: endpoints/ramadan.md
+    - Ø§Ù„Ø§Ø°ÙƒØ§Ø±: endpoints/azkar.md
+    - Ø§Ù„Ø§Ø¯Ø¹ÙŠØ©: endpoints/dua.md
+    - Ø§Ø³Ù…Ø§Ø¡ Ø§Ù„Ù„Ù‡ Ø§Ù„Ø­Ø³Ù†Ù‰: endpoints/allah-names.md
+    - Ø§Ù„Ø­Ø¯ÙŠØ«: endpoints/hadith.md
+  - Ø§Ù„Ù…Ø³Ø§Ù‡Ù…Ø©:
+    - ÙƒÙŠÙÙŠØ© Ø§Ù„Ù…Ø³Ø§Ù‡Ù…Ø©: contributing/index.md
+    - Ø§Ø¶Ø§ÙØ© ÙˆØ­Ø¯Ø© Ø¬Ø¯ÙŠØ¯Ø©: contributing/new-module.md
+    - ØªØ´ØºÙŠÙ„ Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª: contributing/tests.md
+    - Ù‡ÙŠÙƒÙ„ Ø§Ù„Ù…Ø´Ø±ÙˆØ¹: contributing/architecture.md
+  - English:
+    - Home: en/index.md
+    - Getting Started: en/getting-started.md
+    - Authentication: en/authentication.md
+    - Rate Limiting: en/rate-limiting.md
+    - Endpoints:
+      - Prayer Times: en/endpoints/prayer-times.md
+      - Qibla: en/endpoints/qibla.md
+      - Hijri Calendar: en/endpoints/hijri.md
+      - Ramadan: en/endpoints/ramadan.md
+      - Azkar: en/endpoints/azkar.md
+      - Dua: en/endpoints/dua.md
+      - Allah Names: en/endpoints/allah-names.md
+      - Hadith: en/endpoints/hadith.md
+    - Contributing:
+      - How to Contribute: en/contributing/index.md
+      - New Module: en/contributing/new-module.md
+      - Running Tests: en/contributing/tests.md
+      - Architecture: en/contributing/architecture.md

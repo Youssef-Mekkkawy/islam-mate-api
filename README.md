@@ -1,23 +1,30 @@
-# Islam Mate API 🕌
-
 <div align="center">
+
+# Islam Mate API 🕌
 
 **Open-source Islamic REST API for Muslim developers**
 
-![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
-![FastAPI](https://img.shields.io/badge/FastAPI-latest-teal.svg)
-![Tests](https://img.shields.io/badge/Tests-98%20passing-brightgreen.svg)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg?style=flat-square)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-latest-teal.svg?style=flat-square)](https://fastapi.tiangolo.com)
+[![Tests](https://img.shields.io/badge/Tests-98%20passing-brightgreen.svg?style=flat-square)](#)
+[![Docs](https://img.shields.io/badge/Docs-readthedocs-blue.svg?style=flat-square)](https://islam-mate-api.readthedocs.io)
 
-[HuggingFace Dataset](https://huggingface.co/datasets/elprofessorai/islam-mate-data) • [GitHub](https://github.com/Youssef-Mekkkawy/islam-mate-api)
+[Documentation](https://islam-mate-api.readthedocs.io) · [Report Bug](https://github.com/Youssef-Mekkkawy/islam-mate-api/issues) · [Request Feature](https://github.com/Youssef-Mekkkawy/islam-mate-api/issues)
+
+---
+
+[English](#english) · [العربية](#arabic)
 
 </div>
 
 ---
 
+<a name="english"></a>
+
 ## What is Islam Mate API?
 
-A single unified REST API that gives Muslim developers access to all essential Islamic data — prayer times, Quran, Hadith, Azkar, and more — in one place.
+A single unified REST API that gives Muslim developers access to all essential Islamic data in one place.
 
 No more juggling 5 different APIs. One key, everything Islamic.
 
@@ -27,62 +34,29 @@ No more juggling 5 different APIs. One key, everything Islamic.
 
 | Module | Endpoints | Description |
 |---|---|---|
-| 🕐 Prayer Times | 4 | Daily times, next prayer, monthly calendar, methods |
-| 🧭 Qibla | 1 | Direction and distance to Mecca |
-| 🌙 Ramadan | 2 | Suhoor/Iftar times and calendar |
+| 🕐 Prayer Times | 4 | Daily times, next prayer, monthly calendar, 7 calculation methods |
+| 🧭 Qibla | 1 | Direction and distance to Mecca for any location |
+| 🌙 Ramadan | 2 | Suhoor/Iftar times and full calendar |
 | 📅 Hijri Calendar | 4 | Conversion, months, Islamic events |
-| 📿 Azkar | 4 | Morning, evening, sleep, after prayer |
-| 🤲 Dua | 3 | Duas by category |
-| ✨ 99 Names of Allah | 3 | Names with meanings AR + EN |
+| 📿 Azkar | 4 | 130+ categories from Hisnul Muslim with audio |
+| 🤲 Dua | 3 | Duas by category with transliteration |
+| ✨ 99 Names of Allah | 3 | Names with meanings in Arabic and English |
 | 📖 Hadith | 4 | 8 collections, 36,000+ hadiths |
 
 ---
 
 ## Quick Start
 
-### Requirements
-
-- Python 3.10+
-- Git
-
-### Installation
-
 ```bash
 git clone https://github.com/Youssef-Mekkkawy/islam-mate-api
 cd islam-mate-api
-python -m venv venv
-source venv/bin/activate
-# Windows: venv\Scripts\activate
 pip install -r requirements.txt
-```
-
-### Environment Setup
-
-Copy `.env.example` to `.env` and fill in your values:
-
-```bash
-cp .env.example .env
-```
-
-```env
-QURAN_CLIENT_ID=your_client_id
-QURAN_CLIENT_SECRET=your_client_secret
-```
-
-### Download Data
-
-```bash
 python scripts/fetch_azkar.py
 python scripts/fetch_hadith.py
+uvicorn main:app --reload
 ```
 
-### Run
-
-```bash
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
-
-Open docs: http://localhost:8000/docs
+Open: http://localhost:8000/docs
 
 ---
 
@@ -92,184 +66,48 @@ Open docs: http://localhost:8000/docs
 docker compose up
 ```
 
-> Docker support coming soon.
-
 ---
 
 ## API Usage
 
 ### Language Support
 
-All endpoints support Arabic and English via URL prefix:
+```bash
+# English
+curl "http://localhost:8000/api/v1/en/prayer-times?latitude=30.04&longitude=31.23&timezone=Africa/Cairo"
 
-```
-/api/v1/en/prayer-times?latitude=30.04&longitude=31.23
-/api/v1/ar/prayer-times?latitude=30.04&longitude=31.23
-```
-
-Or via query param:
-
-```
-/api/v1/prayer-times?latitude=30.04&longitude=31.23&lang=ar
+# Arabic
+curl "http://localhost:8000/api/v1/ar/prayer-times?latitude=30.04&longitude=31.23&timezone=Africa/Cairo"
 ```
 
-### Endpoints
-
-#### Prayer Times
-
-```
-GET /api/v1/prayer-times?latitude=30.04&longitude=31.23&timezone=Africa/Cairo
-GET /api/v1/prayer/next?latitude=30.04&longitude=31.23
-GET /api/v1/prayer/month?latitude=30.04&longitude=31.23&month=1&year=2026
-GET /api/v1/prayer/methods
-```
-
-#### Qibla
-
-```
-GET /api/v1/qibla?latitude=30.04&longitude=31.23
-```
-
-#### Hijri Calendar
-
-```
-GET /api/v1/hijri
-GET /api/v1/hijri/convert?date=2026-01-01
-GET /api/v1/hijri/months
-GET /api/v1/hijri/events?year=2026
-```
-
-#### Ramadan
-
-```
-GET /api/v1/ramadan?latitude=30.04&longitude=31.23&year=2026
-GET /api/v1/ramadan/calendar?latitude=30.04&longitude=31.23&year=2026
-```
-
-#### Azkar
-
-```
-GET /api/v1/azkar
-GET /api/v1/azkar/{category_id}
-GET /api/v1/azkar/slug/{slug}
-GET /api/v1/azkar/random/item
-```
-
-#### Dua
-
-```
-GET /api/v1/dua
-GET /api/v1/dua/{category}
-GET /api/v1/dua/random
-```
-
-#### 99 Names of Allah
-
-```
-GET /api/v1/allah-names
-GET /api/v1/allah-names/{number}
-GET /api/v1/allah-names/random
-```
-
-#### Hadith
-
-```
-GET /api/v1/hadith
-GET /api/v1/hadith/{collection}
-GET /api/v1/hadith/{collection}/{number}
-GET /api/v1/hadith/random
-```
-
-Available collections: `bukhari` `muslim` `abudawud` `tirmidhi` `ibnmajah` `nasai` `malik` `nawawi40`
-
----
-
-## Authentication
-
-### Development Mode
-
-Auth is disabled by default. Just run and use.
-
-### Production Mode
-
-Enable in `config.yaml`:
-
-```yaml
-app:
-  mode: production
-security:
-  auth_enabled: true
-```
-
-Register for an API key:
+### Quick Examples
 
 ```bash
-curl -X POST http://localhost:8000/api/v1/auth/register \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Your Name", "email": "your@email.com"}'
-```
+# Prayer times for Cairo
+curl "http://localhost:8000/api/v1/en/prayer-times?latitude=30.04&longitude=31.23&timezone=Africa/Cairo"
 
-Use your key:
+# Random Hadith
+curl "http://localhost:8000/api/v1/en/hadith/random"
 
-```bash
-curl http://localhost:8000/api/v1/hadith/bukhari/1 \
-  -H "X-API-Key: your_key_here"
-```
+# Qibla direction
+curl "http://localhost:8000/api/v1/en/qibla?latitude=30.04&longitude=31.23"
 
----
-
-## Rate Limiting
-
-- 60 requests per minute per IP
-- Returns `429 Too Many Requests` when exceeded
-- Configurable in `config.yaml`
-
----
-
-## Configuration
-
-`config.yaml` controls everything:
-
-```yaml
-app:
-  mode: development  # development | production
-
-modules:
-  prayer_times: true
-  azkar: true
-  hadith: true
-  # toggle any module on/off
-
-security:
-  auth_enabled: false
-  rate_limiting: true
-```
-
----
-
-## Architecture
-
-```
-islam-mate-api/
-├── kernel/          # Core: boot, routing, services
-├── modules/         # Each Islamic feature as a module
-├── base/            # BaseModule all modules inherit from
-├── data/            # Local data files (hosted on HuggingFace)
-├── scripts/         # Data download scripts
-├── tests/           # 98 tests
-├── config.yaml      # Module toggles and settings
-└── main.py          # FastAPI app entry point
+# 99 Names of Allah
+curl "http://localhost:8000/api/v1/en/allah-names/random"
 ```
 
 ---
 
 ## Tech Stack
 
-- **Python** + **FastAPI** — REST API
-- **SQLite** — API key storage
-- **SlowAPI** — Rate limiting
-- **HuggingFace** — Audio and data hosting
-- **hijridate** — Hijri calendar calculations
+| Tool | Purpose |
+|---|---|
+| Python + FastAPI | REST API |
+| SQLite | API key storage |
+| SlowAPI | Rate limiting (60 req/min) |
+| Loguru | Logging |
+| HuggingFace | Audio and data hosting |
+| Docker | Containerization |
 
 ---
 
@@ -279,23 +117,118 @@ islam-mate-api/
 |---|---|---|
 | Azkar + Dua | [Hisnul Muslim](https://hisnmuslim.com) | Official API |
 | Hadith | [fawazahmed0/hadith-api](https://github.com/fawazahmed0/hadith-api) | Unlicense (Public Domain) |
-| Prayer Times | Mathematical calculation | — |
 | Quran Metadata | [QUL by Tarteel](https://qul.tarteel.ai) | MIT |
-| Al-Sharaawi Lectures | [HuggingFace Dataset](https://huggingface.co/datasets/elprofessorai/islam-mate-data) | — |
+| Al-Sharaawi Lectures | [HuggingFace](https://huggingface.co/datasets/elprofessorai/islam-mate-data) | — |
 
 ---
 
-## Credits
+## Documentation
 
-- Quran data: [QUL — Quranic Universal Library](https://qul.tarteel.ai) by Tarteel AI (MIT License)
-- Hadith data: [fawazahmed0/hadith-api](https://github.com/fawazahmed0/hadith-api) (Unlicense)
-- Azkar + Dua data: [Hisnul Muslim](https://hisnmuslim.com) official API
+Full documentation at **[islam-mate-api.readthedocs.io](https://islam-mate-api.readthedocs.io)**
+
+- Getting Started
+- Authentication
+- Rate Limiting
+- All Endpoints
+- How to Use (cURL, Python, JS, PHP, Flutter, Android)
+- Prayer Time Math
+
+---
+
+## Contributing
+
+Contributions are welcome! See [Contributing Guide](https://islam-mate-api.readthedocs.io/en/contributing/index).
 
 ---
 
 ## License
 
 MIT License — free to use, modify, and distribute.
+
+---
+
+<a name="arabic"></a>
+
+<div dir="rtl">
+
+## ما هي Islam Mate API؟
+
+واجهة برمجية REST موحدة تمنح المطورين المسلمين الوصول إلى جميع البيانات الإسلامية الأساسية في مكان واحد.
+
+لا مزيد من استخدام 5 واجهات برمجية مختلفة. مفتاح واحد، كل شيء إسلامي.
+
+---
+
+## المميزات
+
+| الوحدة | نقاط النهاية | الوصف |
+|---|---|---|
+| 🕐 اوقات الصلاة | 4 | الاوقات اليومية، الصلاة القادمة، التقويم الشهري، 7 طرق حساب |
+| 🧭 القبلة | 1 | الاتجاه والمسافة الى مكة المكرمة لاي موقع |
+| 🌙 رمضان | 2 | اوقات السحور والافطار والتقويم الكامل |
+| 📅 التقويم الهجري | 4 | التحويل، الاشهر، المناسبات الاسلامية |
+| 📿 الاذكار | 4 | اكثر من 130 فئة من حصن المسلم مع الصوت |
+| 🤲 الادعية | 3 | ادعية مصنفة مع النص العربي |
+| ✨ اسماء الله الحسنى | 3 | الاسماء مع معانيها بالعربية والانجليزية |
+| 📖 الحديث | 4 | 8 مجموعات، اكثر من 36,000 حديث |
+
+---
+
+## البداية السريعة
+
+```bash
+git clone https://github.com/Youssef-Mekkkawy/islam-mate-api
+cd islam-mate-api
+pip install -r requirements.txt
+python scripts/fetch_azkar.py
+python scripts/fetch_hadith.py
+uvicorn main:app --reload
+```
+
+افتح: http://localhost:8000/docs
+
+---
+
+## Docker
+
+```bash
+docker compose up
+```
+
+---
+
+## امثلة سريعة
+
+```bash
+# اوقات الصلاة للقاهرة
+curl "http://localhost:8000/api/v1/ar/prayer-times?latitude=30.04&longitude=31.23&timezone=Africa/Cairo"
+
+# حديث عشوائي
+curl "http://localhost:8000/api/v1/ar/hadith/random"
+
+# اتجاه القبلة
+curl "http://localhost:8000/api/v1/ar/qibla?latitude=30.04&longitude=31.23"
+```
+
+---
+
+## التوثيق
+
+التوثيق الكامل على **[islam-mate-api.readthedocs.io](https://islam-mate-api.readthedocs.io)**
+
+---
+
+## المساهمة
+
+نرحب بمساهماتك! راجع [دليل المساهمة](https://islam-mate-api.readthedocs.io/ar/contributing/index).
+
+---
+
+## الرخصة
+
+رخصة MIT — مجاني للاستخدام والتعديل والتوزيع.
+
+</div>
 
 ---
 

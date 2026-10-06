@@ -20,6 +20,8 @@ modules:
   hadith: true
   auth: true
   quran: false
+  location: true
+  islamic_events: true
 
 security:
   auth_enabled: false

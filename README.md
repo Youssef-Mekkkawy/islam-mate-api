@@ -173,6 +173,12 @@ islam-mate-data/
 
 ---
 
+## Credits
+
+| Resource | Author | License |
+|---|---|---|
+| Prayer time calculations | [Zain Hussaini](https://github.com/zainhussaini/salat) | MIT |
+
 ## Contributing
 
 We welcome contributions from the community.
@@ -200,6 +206,7 @@ git push origin feature/your-feature-name
 See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for full guidelines.
 
 ---
+
 
 ## License
 

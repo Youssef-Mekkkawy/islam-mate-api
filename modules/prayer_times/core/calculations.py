@@ -1,4 +1,9 @@
-﻿import datetime as dt
+﻿# Prayer time calculations based on the work by Zain Hussaini
+# Source: https://github.com/zainhussaini/salat
+# License: MIT
+
+
+import datetime as dt
 from typing import Callable
 import math
 

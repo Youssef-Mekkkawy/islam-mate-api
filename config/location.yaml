@@ -1,0 +1,143 @@
+# Islam Mate API — Location Configuration
+# Developer controls which methods are available to end users
+
+location:
+
+  # Global toggle
+  enabled: true
+
+  # Protected config endpoint
+  config_endpoint:
+    enabled: true
+    protection: api_key  # public | api_key | admin_key | disabled
+
+  # What to do when a disabled method is called
+  # skip     = silently try next method
+  # error    = return clear error message
+  # redirect = redirect to next available method
+  on_method_disabled: skip
+
+  # Methods available to end users
+  methods:
+
+    gps:
+      enabled: true
+      label_en: "Use my GPS"
+      label_ar: "استخدم GPS"
+
+    wifi:
+      enabled: true
+      label_en: "Detect via WiFi"
+      label_ar: "كشف عبر WiFi"
+
+    ip_detection:
+      enabled: true
+      label_en: "Auto detect"
+      label_ar: "كشف تلقائي"
+      provider: ip-api        # ip-api | ipinfo | custom
+      timeout_seconds: 5
+      on_disabled: skip
+
+    city_search:
+      enabled: true
+      label_en: "Search city"
+      label_ar: "ابحث عن مدينة"
+      source: db_first         # db_first | nominatim_only | db_only
+      cache_results: true
+
+    map_picker:
+      enabled: true
+      label_en: "Pick on map"
+      label_ar: "اختر على الخريطة"
+      default_zoom: 6
+      default_center_lat: 21.3891   # Mecca
+      default_center_lng: 39.8579
+      online_tiles: true
+      offline_tiles: false           # requires region pack download
+
+    manual_entry:
+      enabled: true
+      label_en: "Enter manually"
+      label_ar: "إدخال يدوي"
+      allow_coordinates: true        # user can type lat/long
+      allow_city_name: true          # user can type city name
+
+  # Platform-specific method priority
+  # First method in list = tried first; falls back to next if unavailable
+  platforms:
+
+    android:
+      priority:
+        - gps
+        - wifi
+        - ip_detection
+        - city_search
+        - map_picker
+      cache_location: true
+      cache_ttl_hours: 24
+
+    ios:
+      priority:
+        - gps
+        - wifi
+        - ip_detection
+        - city_search
+        - map_picker
+      cache_location: true
+      cache_ttl_hours: 24
+
+    windows:
+      priority:
+        - wifi
+        - ip_detection
+        - city_search
+        - map_picker
+        - manual_entry
+      cache_location: true
+      cache_ttl_hours: 168    # 1 week
+
+    linux:
+      priority:
+        - wifi
+        - ip_detection
+        - city_search
+        - map_picker
+        - manual_entry
+      cache_location: true
+      cache_ttl_hours: 168
+
+    web:
+      priority:
+        - wifi
+        - gps
+        - ip_detection
+        - city_search
+        - map_picker
+      cache_location: false
+
+    desktop:
+      priority:
+        - wifi
+        - ip_detection
+        - city_search
+        - map_picker
+        - manual_entry
+      cache_location: true
+      cache_ttl_hours: 168
+
+  # Accuracy
+  accuracy:
+    prayer_time_tolerance_minutes: 2
+    warn_if_accuracy_worse_than_km: 50
+
+  # Offline
+  offline:
+    enabled: true
+    region_packs_base_url: "https://huggingface.co/datasets/elprofessorai/islam-mate-data/resolve/main/region_packs"
+    cache_search_results: true
+    bundled_cities_file: "data/core_cities.json"
+
+  # Map picker
+  map:
+    response_default: full    # full | minimal
+    tile_provider: openstreetmap

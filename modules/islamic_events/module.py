@@ -2,6 +2,7 @@ from fastapi import APIRouter, Query, Request
 from base.base_module import BaseModule
 from datetime import datetime, date, timedelta
 from hijridate import Gregorian, Hijri
+from modules.location.platforms import router as platforms_router
 import math
 
 

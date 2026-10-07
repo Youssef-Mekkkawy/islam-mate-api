@@ -1,4 +1,4 @@
-﻿app:
+app:
   name: Islam Mate API
   version: 1.0.0
   mode: development
@@ -22,6 +22,7 @@ modules:
   quran: false
   location: true
   islamic_events: true
+  zakat: true
 
 security:
   auth_enabled: false

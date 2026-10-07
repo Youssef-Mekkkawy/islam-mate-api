@@ -5,7 +5,7 @@ import os
 class ConfigReader:
     def __init__(self):
         self.config = {}
-        self.config_path = "config.yaml"
+        self.config_path = "config/config.yaml"
 
     def load(self):
         if not os.path.exists(self.config_path):

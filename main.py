@@ -6,6 +6,7 @@ from kernel.kernel import Kernel
 from kernel.services.auth import validate_key
 from kernel.services.config_reader import ConfigReader
 from kernel.rate_limiter import limiter, rate_limit_exceeded_handler, is_rate_limited
+from modules.location.platforms import router as location_platforms_router
 
 kernel = Kernel()
 kernel.discover()
@@ -82,6 +83,7 @@ async def main_middleware(request: Request, call_next):
 
 
 kernel.register_routes(app)
+app.include_router(location_platforms_router)
 
 
 @app.on_event("startup")

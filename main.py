@@ -1,7 +1,10 @@
-﻿from fastapi import FastAPI, Request
+﻿from contextlib import asynccontextmanager
+
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from slowapi.errors import RateLimitExceeded
+
 from kernel.kernel import Kernel
 from kernel.services.auth import validate_key
 from kernel.services.config_reader import ConfigReader
@@ -10,24 +13,35 @@ from modules.location.platforms import router as location_platforms_router
 from kernel.middleware.logging_middleware import LoggingMiddleware, setup_logger
 from kernel.middleware.ip_whitelist import IPWhitelistMiddleware
 
+# ── Boot kernel & config once at module load ───────────────────────────────────
 kernel = Kernel()
 kernel.discover()
 
-# --- Load config for startup settings ---
 _config = ConfigReader()
 _config.load()
 
-# --- CORS — config-driven ---
+# ── CORS settings (read once) ──────────────────────────────────────────────────
 _cors_cfg = _config.get("cors", {})
 _cors_enabled = _cors_cfg.get("enabled", True) if isinstance(_cors_cfg, dict) else True
 _cors_origins = _cors_cfg.get("allowed_origins", ["*"]) if isinstance(_cors_cfg, dict) else ["*"]
 _cors_methods = _cors_cfg.get("allowed_methods", ["*"]) if isinstance(_cors_cfg, dict) else ["*"]
 _cors_headers = _cors_cfg.get("allowed_headers", ["*"]) if isinstance(_cors_cfg, dict) else ["*"]
 
+
+# ── Lifespan (replaces deprecated @app.on_event) ──────────────────────────────
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    await kernel.init_services()   # startup
+    yield
+    await kernel.shutdown()        # shutdown
+
+
+# ── App ────────────────────────────────────────────────────────────────────────
 app = FastAPI(
     title="Islam Mate API",
     description="Open-source Islamic REST API",
-    version="1.0.0"
+    version="1.0.0",
+    lifespan=lifespan,
 )
 
 setup_logger()
@@ -68,11 +82,10 @@ def _err(status: int, code: str, message: str, message_ar: str = "", details=Non
 
 @app.middleware("http")
 async def main_middleware(request: Request, call_next):
-    config = ConfigReader()
-    config.load()
-    mode = config.get("app.mode", "development")
-    auth_enabled = config.get("security.auth_enabled", False)
-    rate_limiting = config.get("security.rate_limiting", False)
+    # ✅ Use the already-loaded _config — no new instance per request
+    mode = _config.get("app.mode", "development")
+    auth_enabled = _config.get("security.auth_enabled", False)
+    rate_limiting = _config.get("security.rate_limiting", False)
 
     path = request.url.path
     is_exempt = path in EXEMPT_EXACT or any(path.startswith(p) for p in EXEMPT_PREFIX)
@@ -120,16 +133,6 @@ async def main_middleware(request: Request, call_next):
 
 kernel.register_routes(app)
 app.include_router(location_platforms_router)
-
-
-@app.on_event("startup")
-async def startup():
-    await kernel.init_services()
-
-
-@app.on_event("shutdown")
-async def shutdown():
-    await kernel.shutdown()
 
 
 @app.get("/")

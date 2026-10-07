@@ -1,0 +1,86 @@
+app:
+  name: Islam Mate API
+  version: 1.0.0
+  mode: development
+  debug: true
+
+server:
+  host: 0.0.0.0
+  port: 8000
+  reload: true
+
+modules:
+  prayer_times: true
+  qibla: true
+  ramadan: true
+  hijri: true
+  azkar: true
+  dua: true
+  allah_names: true
+  hadith: true
+  auth: true
+  quran: false
+  location: true
+  islamic_events: true
+  zakat: true
+  sharaawi: true
+
+security:
+  auth_enabled: false
+  rate_limiting: true
+  rate_limit_default: "60/minute"
+  rate_limit_strict: "30/minute"
+  rate_limit_heavy: "10/minute"
+  ip_whitelist: []
+
+cors:
+  enabled: true
+  allowed_origins:
+    - "*"
+  allowed_methods:
+    - "GET"
+    - "POST"
+    - "OPTIONS"
+  allowed_headers:
+    - "*"
+
+database:
+  enabled: true
+  backend: sqlite # sqlite | postgresql
+
+  # SQLite — default, zero setup, file-based
+  path: data/islammate.db
+
+  # PostgreSQL — uncomment for production
+  # backend: postgresql
+  # host: localhost
+  # port: 5432
+  # name: islammate
+  # user: postgres
+  # password: ""
+
+  echo: false # true = log all SQL queries (dev only)
+  pool_size: 5 # postgresql only, ignored for sqlite
+
+cache:
+  ttl: 3600
+
+languages:
+  default: en
+  supported:
+    - en
+    - ar
+logging:
+  enabled: true
+  level: "INFO"
+  format: "text"
+  log_file: "logs/api.log"
+  rotation: "10 MB"
+  retention: "7 days"
+
+ip_whitelist:
+  enabled: false
+  allowed_ips:
+    - "127.0.0.1"
+    - "::1"
+  block_message: "Access denied."
